@@ -1,0 +1,43 @@
+def playAgain():
+  pg = input("\n\nDo you want to play again 'y/n' ")
+  if pg == 'y' or pg == 'n':
+    return pg
+  else:
+    return playAgain()
+ import random
+
+def guessGame():
+  playAg = 'y'
+  score = 0
+
+  while playAg == 'y':
+    computerNum = random.randint(1,50)
+    userNum = int(input("\nEnter a number between 1 and 50: "))
+
+    diff = computerNum - userNum
+
+    if diff == 0:
+      print("Wow, you guessed accurately, you get 50 points")
+      score = score + 50
+      print("Your updated score is ", score)
+    elif diff >=-5 and diff <= 5:
+      print("This number is very close to the real number")
+      print("User Number = ", userNum)
+      print("Real Number = ", computerNum)
+      score = score + 25
+      print("Your updated score is ", score)
+    elif diff >=-10 and diff <=10:
+      print("This number is close to the real number")
+      print("User Number = ", userNum)
+      print("Real Number = ", computerNum)
+      score = score + 10
+      print("Your updated score is ", score)
+    else:
+      print("Sorry, you didn't make it.")
+      print("User Number = ", userNum)
+      print("Real Number = ", computerNum)
+      print("Your updated score is ", score)
+
+      playAg = playAgain()
+  else:
+    print("Final Score is ", score)
